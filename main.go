@@ -169,13 +169,13 @@ func main() {
 						log.Fatal(err)
 					}
 
-					err = ioutil.WriteFile("models/"+xCamelCase+".go", input, 0755)
+					err = ioutil.WriteFile("models/"+xSnakeCase+".go", input, 0755)
 
 					if err != nil {
 						log.Fatal(err)
 					}
 
-					err = filepath.Walk("models", getWalkFunc(xCamelCase+".go", "Boilerplate", xPascalCase))
+					err = filepath.Walk("models", getWalkFunc(xSnakeCase+".go", "Boilerplate", xPascalCase))
 
 					if err != nil {
 						log.Fatal(err)
