@@ -163,6 +163,10 @@ func main() {
 						log.Fatal(err)
 					}
 
+					if _, err := os.Stat("models/" + xSnakeCase + ".go"); err == nil {
+						continue
+					}
+
 					input, err := ioutil.ReadFile("models/boilerplate.go")
 
 					if err != nil {
