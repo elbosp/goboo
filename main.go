@@ -256,7 +256,3 @@ func getWalkFunc(file string, oldString string, newString string) filepath.WalkF
 		return nil
 	}
 }
-
-func replaceInFile(x string) {
-
-}
