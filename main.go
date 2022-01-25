@@ -184,6 +184,28 @@ func main() {
 					if err != nil {
 						log.Fatal(err)
 					}
+
+					if _, err := os.Stat("entity/" + xSnakeCase + ".go"); err == nil {
+						continue
+					}
+
+					input, err = ioutil.ReadFile("entity/boilerplate.go")
+
+					if err != nil {
+						log.Fatal(err)
+					}
+
+					err = ioutil.WriteFile("entity/"+xSnakeCase+".go", input, 0755)
+
+					if err != nil {
+						log.Fatal(err)
+					}
+
+					err = filepath.Walk("entity", getWalkFunc(xSnakeCase+".go", "Boilerplate", xPascalCase))
+
+					if err != nil {
+						log.Fatal(err)
+					}
 				}
 
 				return
