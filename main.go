@@ -99,7 +99,7 @@ func main() {
 						continue
 					}
 
-					if _, err := os.Stat("/domain/" + xKebabCase); !os.IsNotExist(err) {
+					if _, err := os.Stat("/domain/" + xKebabCase); os.IsNotExist(err) {
 						continue
 					}
 
