@@ -163,23 +163,23 @@ func main() {
 						log.Fatal(err)
 					}
 
-					if _, err := os.Stat("models/" + xSnakeCase + ".go"); err == nil {
+					if _, err := os.Stat("valueobject/" + xSnakeCase + ".go"); err == nil {
 						continue
 					}
 
-					input, err := ioutil.ReadFile("models/boilerplate.go")
+					input, err := ioutil.ReadFile("valueobject/boilerplate.go")
 
 					if err != nil {
 						log.Fatal(err)
 					}
 
-					err = ioutil.WriteFile("models/"+xSnakeCase+".go", input, 0755)
+					err = ioutil.WriteFile("valueobject/"+xSnakeCase+".go", input, 0755)
 
 					if err != nil {
 						log.Fatal(err)
 					}
 
-					err = filepath.Walk("models", getWalkFunc(xSnakeCase+".go", "Boilerplate", xPascalCase))
+					err = filepath.Walk("valueobject", getWalkFunc(xSnakeCase+".go", "Boilerplate", xPascalCase))
 
 					if err != nil {
 						log.Fatal(err)
