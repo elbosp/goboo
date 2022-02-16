@@ -127,25 +127,7 @@ func main() {
 						}
 					}
 
-					err = filepath.Walk("domain/"+xKebabCase+"/delivery/http/", getWalkFunc("handler.go", `"/boilerplate`, `"/`+xKebabCase))
-
-					if err != nil {
-						log.Fatal(err)
-					}
-
-					err = filepath.Walk("domain/"+xKebabCase+"/repository/", getWalkFunc("mysql.go", "FROM boilerplate", "FROM "+xSnakeCase))
-
-					if err != nil {
-						log.Fatal(err)
-					}
-
-					err = filepath.Walk("domain/"+xKebabCase+"/repository/", getWalkFunc("mysql.go", "UPDATE boilerplate", "UPDATE "+xSnakeCase))
-
-					if err != nil {
-						log.Fatal(err)
-					}
-
-					err = filepath.Walk("domain/"+xKebabCase+"/repository/", getWalkFunc("mysql.go", "INTO boilerplate", "INTO "+xSnakeCase))
+					err = filepath.Walk("domain/"+xKebabCase+"/delivery/http/", getWalkFunc("routes-http.go", `"/boilerplate`, `"/`+xKebabCase))
 
 					if err != nil {
 						log.Fatal(err)
