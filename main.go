@@ -133,6 +133,12 @@ func main() {
 						log.Fatal(err)
 					}
 
+					err = filepath.Walk("domain/"+xKebabCase+"/repository/", getWalkFunc("define.go", `"boilerplate"`, `"`+xSnakeCase+`"`))
+
+					if err != nil {
+						log.Fatal(err)
+					}
+
 					err = filepath.Walk("domain/"+xKebabCase, getWalkFunc("*.go", "Boilerplate", xPascalCase))
 
 					if err != nil {
